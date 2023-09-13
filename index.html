@@ -31,8 +31,8 @@
 
         <div>
 
-            <div>
-                {{errorMessage}}
+            <div class="text-center">
+                <span class="rounded-pill bg-warning" :class="errorMessage !== '' ? 'p-2' : '' ">{{errorMessage}}</span>
             </div>
 
             <ul v-if="toDoList.length > 0" class="list-unstyled">
