@@ -1,0 +1,9 @@
+li button {
+    width: 0.5rem;
+    aspect-ratio: 1/1;
+}
+
+li button i {
+    font-size: 0.75rem;
+}
+
