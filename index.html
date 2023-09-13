@@ -19,7 +19,7 @@
         </div>
 
         <div>
-            <ul>
+            <ul v-if="toDoList.length != 0">
                 <li v-for="(toDo, index) in toDoList" @click="changeStatus(index)" class="w-25">
                     <div class="d-flex justify-content-between">
                         <span :class="toDo.done ? 'text-decoration-line-through' : '' ">{{toDo.text}}</span>
@@ -27,6 +27,9 @@
                     </div>
                 </li>
             </ul>
+            <div v-else>
+                Nessun to do presente
+            </div>
         </div>
     </div>
 

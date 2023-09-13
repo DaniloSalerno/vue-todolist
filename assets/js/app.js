@@ -19,6 +19,8 @@ createApp({
 
             newToDo: '',
 
+            errorMessage: '',
+
             toDoList: [
                 {
                     text: 'Fare la spesa',
@@ -36,35 +38,42 @@ createApp({
                     text: 'Ordinare la pizza',
                     done: true,
                 },
-                
+
             ]
         }
 
     },
     methods: {
 
-        removeToDo (index) {
-            this.toDoList.splice([index],1)
+        removeToDo(index) {
+            this.toDoList.splice([index], 1)
         },
 
-        addToDo () {
-            this.toDoList.push({
-                text: this.newToDo,
-                done: false,
-            }) 
+        addToDo() {
+
+            if (this.newToDo != '') {
+                this.toDoList.push({
+                    text: this.newToDo,
+                    done: false,
+                });
+            }
+            
+            this.newToDo = ''
+
         },
 
-        changeStatus (index) {
+        changeStatus(index) {
 
             if (this.toDoList[index].done) {
 
                 this.toDoList[index].done = false
-                
+
             } else {
 
                 this.toDoList[index].done = true
-                
+
             }
         }
     }
+    
 }).mount('#app')
