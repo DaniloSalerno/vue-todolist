@@ -52,6 +52,19 @@ createApp({
                 text: this.newToDo,
                 done: false,
             }) 
+        },
+
+        changeStatus (index) {
+
+            if (this.toDoList[index].done) {
+
+                this.toDoList[index].done = false
+                
+            } else {
+
+                this.toDoList[index].done = true
+                
+            }
         }
     }
 }).mount('#app')

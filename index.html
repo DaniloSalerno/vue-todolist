@@ -14,13 +14,13 @@
     <div id="app" class="container">
 
         <div>
-            <input type="text" v-model="newToDo">
+            <input type="text" v-model="newToDo"  @keyup.enter="addToDo()">
             <button @click="addToDo()">Aggiungi</button>
         </div>
 
         <div>
             <ul>
-                <li v-for="(toDo, index) in toDoList" class="w-25">
+                <li v-for="(toDo, index) in toDoList" @click="changeStatus(index)" class="w-25">
                     <div class="d-flex justify-content-between">
                         <span :class="toDo.done ? 'text-decoration-line-through' : '' ">{{toDo.text}}</span>
                         <button @click="removeToDo(index)">X</button>
