@@ -46,7 +46,14 @@ createApp({
     methods: {
 
         removeToDo(index) {
-            this.toDoList.splice([index], 1)
+
+            this.errorMessage = ''
+
+            this.toDoList.splice([index], 1);
+
+            if (this.toDoList.length == 0) {
+                this.errorMessage = 'Nessun to do trovato'
+            }
         },
 
         addToDo() {
@@ -56,6 +63,9 @@ createApp({
                     text: this.newToDo,
                     done: false,
                 });
+                this.errorMessage = ''
+            } else {
+                this.errorMessage = 'Non hai inserito nessun toDo'
             }
             
             this.newToDo = ''
@@ -63,7 +73,7 @@ createApp({
         },
 
         changeStatus(index) {
-
+            this.errorMessage = ''
             if (this.toDoList[index].done) {
 
                 this.toDoList[index].done = false
@@ -73,6 +83,7 @@ createApp({
                 this.toDoList[index].done = true
 
             }
+            
         }
     }
     

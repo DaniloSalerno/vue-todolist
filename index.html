@@ -31,7 +31,11 @@
 
         <div>
 
-            <ul v-if="toDoList.length != 0" class="list-unstyled">
+            <div>
+                {{errorMessage}}
+            </div>
+
+            <ul v-if="toDoList.length > 0" class="list-unstyled">
 
                 <li v-for="(toDo, index) in toDoList" class="mb-2 border-bottom align-items-center p-2">
 
@@ -66,9 +70,7 @@
             </ul>
             <!-- /ul -->
 
-            <div v-else>
-                Nessun to do presente
-            </div>
+            
 
         </div>
     </div>
